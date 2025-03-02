@@ -93,10 +93,10 @@ app.get("/teachers", async (req, res) => {
 });
 
 app.post("/teachers", async (req, res) => {
-  const { name, age, grade } = req.body;
+  const { name, age, email, phone, subject, gender, experience} = req.body;
 
   try {
-    const teacher = new Teacher({ name, age, grade });
+    const teacher = new Teacher({ name, age, email, phone, subject, gender, experience });
     await teacher.save();
     res.status(201).json(teacher);
   } catch (error) {
